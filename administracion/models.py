@@ -177,7 +177,7 @@ class Pago(models.Model):
 
         self.total_orden = self.orden_asociada.total
 
-        self.deuda_pendiente = self.total_orden - self.pago
+        self.deuda_pendiente = self.orden_asociada.debe - self.pago
         
         super(Pago, self).save(*args, **kwargs)
         Actualizar_Pagos_Ordenes()
